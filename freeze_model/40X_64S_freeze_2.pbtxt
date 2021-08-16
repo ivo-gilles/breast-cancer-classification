@@ -1,0 +1,2865 @@
+node {
+  name: "input_tensor"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 1
+        }
+        dim {
+          size: 3
+        }
+        dim {
+          size: 64
+        }
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+}
+node {
+  name: "Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "test"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/shape"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\005\000\000\000\005\000\000\000\003\000\000\000@\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/mean"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/stddev"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.18618986010551453
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  op: "TruncatedNormal"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/mul"
+  op: "Mul"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/stddev"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal"
+  op: "Add"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/mul"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal/mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 5
+        }
+        dim {
+          size: 5
+        }
+        dim {
+          size: 3
+        }
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv1/conv/W"
+  input: "40X_64S_model/inference/conv1/conv/W/Initializer/truncated_normal"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/W/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv1/conv/W"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/b/Initializer/Const"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 64
+          }
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/b"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/b/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv1/conv/b"
+  input: "40X_64S_model/inference/conv1/conv/b/Initializer/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/b/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv1/conv/b"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/b"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/Conv2D"
+  op: "Conv2D"
+  input: "input_tensor"
+  input: "40X_64S_model/inference/conv1/conv/W/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/BiasAdd"
+  op: "BiasAdd"
+  input: "40X_64S_model/inference/conv1/conv/Conv2D"
+  input: "40X_64S_model/inference/conv1/conv/b/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/conv/conv"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv1/conv/BiasAdd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv1/relu"
+  op: "Relu"
+  input: "40X_64S_model/inference/conv1/conv/conv"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/pool1"
+  op: "MaxPool"
+  input: "40X_64S_model/inference/conv1/relu"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "ksize"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 3
+        i: 3
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 2
+        i: 2
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/shape"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\005\000\000\000\005\000\000\000@\000\000\000 \000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/mean"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/stddev"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.040311288088560104
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  op: "TruncatedNormal"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/mul"
+  op: "Mul"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/stddev"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal"
+  op: "Add"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/mul"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal/mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 5
+        }
+        dim {
+          size: 5
+        }
+        dim {
+          size: 64
+        }
+        dim {
+          size: 32
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv2/conv/W"
+  input: "40X_64S_model/inference/conv2/conv/W/Initializer/truncated_normal"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/W/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv2/conv/W"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/b/Initializer/Const"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 32
+          }
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/b"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 32
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/b/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv2/conv/b"
+  input: "40X_64S_model/inference/conv2/conv/b/Initializer/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/b/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv2/conv/b"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/b"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/Conv2D"
+  op: "Conv2D"
+  input: "40X_64S_model/inference/pool1"
+  input: "40X_64S_model/inference/conv2/conv/W/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/BiasAdd"
+  op: "BiasAdd"
+  input: "40X_64S_model/inference/conv2/conv/Conv2D"
+  input: "40X_64S_model/inference/conv2/conv/b/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/conv/conv"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv2/conv/BiasAdd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv2/relu"
+  op: "Relu"
+  input: "40X_64S_model/inference/conv2/conv/conv"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/pool2"
+  op: "AvgPool"
+  input: "40X_64S_model/inference/conv2/relu"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "ksize"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 3
+        i: 3
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 2
+        i: 2
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/shape"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 4
+          }
+        }
+        tensor_content: "\005\000\000\000\005\000\000\000 \000\000\000@\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/mean"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/stddev"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0570087730884552
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  op: "TruncatedNormal"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/mul"
+  op: "Mul"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/TruncatedNormal"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/stddev"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal"
+  op: "Add"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/mul"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal/mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 5
+        }
+        dim {
+          size: 5
+        }
+        dim {
+          size: 32
+        }
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv3/conv/W"
+  input: "40X_64S_model/inference/conv3/conv/W/Initializer/truncated_normal"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/W/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv3/conv/W"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/b/Initializer/Const"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+          dim {
+            size: 64
+          }
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/b"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/b/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv3/conv/b"
+  input: "40X_64S_model/inference/conv3/conv/b/Initializer/Const"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/b/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv3/conv/b"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/b"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/Conv2D"
+  op: "Conv2D"
+  input: "40X_64S_model/inference/pool2"
+  input: "40X_64S_model/inference/conv3/conv/W/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/BiasAdd"
+  op: "BiasAdd"
+  input: "40X_64S_model/inference/conv3/conv/Conv2D"
+  input: "40X_64S_model/inference/conv3/conv/b/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/conv/conv"
+  op: "Identity"
+  input: "40X_64S_model/inference/conv3/conv/BiasAdd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/conv3/relu"
+  op: "Relu"
+  input: "40X_64S_model/inference/conv3/conv/conv"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/pool2_1"
+  op: "AvgPool"
+  input: "40X_64S_model/inference/conv3/relu"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NCHW"
+    }
+  }
+  attr {
+    key: "ksize"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 3
+        i: 3
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 2
+        i: 2
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\377\377\377\377@\014\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/Reshape"
+  op: "Reshape"
+  input: "40X_64S_model/inference/pool2_1"
+  input: "40X_64S_model/inference/fc1/Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/shape"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "@\014\000\000@\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/mean"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/stddev"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.028793778270483017
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/TruncatedNormal"
+  op: "TruncatedNormal"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/mul"
+  op: "Mul"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/TruncatedNormal"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/stddev"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal"
+  op: "Add"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/mul"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal/mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 3136
+        }
+        dim {
+          size: 64
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/fc1/fc/kernel"
+  input: "40X_64S_model/inference/fc1/fc/kernel/Initializer/truncated_normal"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/kernel/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/fc1/fc/kernel"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/MatMul"
+  op: "MatMul"
+  input: "40X_64S_model/inference/fc1/Reshape"
+  input: "40X_64S_model/inference/fc1/fc/kernel/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/fc/output"
+  op: "Identity"
+  input: "40X_64S_model/inference/fc1/fc/MatMul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc1/relu"
+  op: "Relu"
+  input: "40X_64S_model/inference/fc1/fc/output"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/Reshape/shape"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "\377\377\377\377@\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/Reshape"
+  op: "Reshape"
+  input: "40X_64S_model/inference/fc1/relu"
+  input: "40X_64S_model/inference/Reshape/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tshape"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/shape"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 2
+          }
+        }
+        tensor_content: "@\000\000\000\002\000\000\000"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/mean"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.0
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/stddev"
+  op: "Const"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 0.20155644416809082
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/TruncatedNormal"
+  op: "TruncatedNormal"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/shape"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "seed"
+    value {
+      i: 0
+    }
+  }
+  attr {
+    key: "seed2"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/mul"
+  op: "Mul"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/TruncatedNormal"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/stddev"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal"
+  op: "Add"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/mul"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal/mean"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel"
+  op: "VariableV2"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 64
+        }
+        dim {
+          size: 2
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/fc2/kernel"
+  input: "40X_64S_model/inference/fc2/kernel/Initializer/truncated_normal"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/kernel/read"
+  op: "Identity"
+  input: "40X_64S_model/inference/fc2/kernel"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/MatMul"
+  op: "MatMul"
+  input: "40X_64S_model/inference/Reshape"
+  input: "40X_64S_model/inference/fc2/kernel/read"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/fc2/output"
+  op: "Identity"
+  input: "40X_64S_model/inference/fc2/MatMul"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/softmax"
+  op: "Softmax"
+  input: "40X_64S_model/inference/fc2/output"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/score/dimension"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+        }
+        int_val: -1
+      }
+    }
+  }
+}
+node {
+  name: "40X_64S_model/inference/score"
+  op: "ArgMax"
+  input: "40X_64S_model/inference/softmax"
+  input: "40X_64S_model/inference/score/dimension"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "output_type"
+    value {
+      type: DT_INT64
+    }
+  }
+}
+node {
+  name: "save/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        string_val: "40X_64S_model/inference/conv1/conv/W"
+        string_val: "40X_64S_model/inference/conv1/conv/b"
+        string_val: "40X_64S_model/inference/conv2/conv/W"
+        string_val: "40X_64S_model/inference/conv2/conv/b"
+        string_val: "40X_64S_model/inference/conv3/conv/W"
+        string_val: "40X_64S_model/inference/conv3/conv/b"
+        string_val: "40X_64S_model/inference/fc1/fc/kernel"
+        string_val: "40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save/SaveV2"
+  op: "SaveV2"
+  input: "save/Const"
+  input: "save/SaveV2/tensor_names"
+  input: "save/SaveV2/shape_and_slices"
+  input: "40X_64S_model/inference/conv1/conv/W"
+  input: "40X_64S_model/inference/conv1/conv/b"
+  input: "40X_64S_model/inference/conv2/conv/W"
+  input: "40X_64S_model/inference/conv2/conv/b"
+  input: "40X_64S_model/inference/conv3/conv/W"
+  input: "40X_64S_model/inference/conv3/conv/b"
+  input: "40X_64S_model/inference/fc1/fc/kernel"
+  input: "40X_64S_model/inference/fc2/kernel"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save/control_dependency"
+  op: "Identity"
+  input: "save/Const"
+  input: "^save/SaveV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@save/Const"
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2/tensor_names"
+  op: "Const"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        string_val: "40X_64S_model/inference/conv1/conv/W"
+        string_val: "40X_64S_model/inference/conv1/conv/b"
+        string_val: "40X_64S_model/inference/conv2/conv/W"
+        string_val: "40X_64S_model/inference/conv2/conv/b"
+        string_val: "40X_64S_model/inference/conv3/conv/W"
+        string_val: "40X_64S_model/inference/conv3/conv/b"
+        string_val: "40X_64S_model/inference/fc1/fc/kernel"
+        string_val: "40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2/shape_and_slices"
+  op: "Const"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 8
+          }
+        }
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save/RestoreV2"
+  op: "RestoreV2"
+  input: "save/Const"
+  input: "save/RestoreV2/tensor_names"
+  input: "save/RestoreV2/shape_and_slices"
+  device: "/device:CPU:0"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save/Assign"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv1/conv/W"
+  input: "save/RestoreV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_1"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv1/conv/b"
+  input: "save/RestoreV2:1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv1/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_2"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv2/conv/W"
+  input: "save/RestoreV2:2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_3"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv2/conv/b"
+  input: "save/RestoreV2:3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv2/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_4"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv3/conv/W"
+  input: "save/RestoreV2:4"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/W"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_5"
+  op: "Assign"
+  input: "40X_64S_model/inference/conv3/conv/b"
+  input: "save/RestoreV2:5"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/conv3/conv/b"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_6"
+  op: "Assign"
+  input: "40X_64S_model/inference/fc1/fc/kernel"
+  input: "save/RestoreV2:6"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc1/fc/kernel"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/Assign_7"
+  op: "Assign"
+  input: "40X_64S_model/inference/fc2/kernel"
+  input: "save/RestoreV2:7"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@40X_64S_model/inference/fc2/kernel"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save/restore_all"
+  op: "NoOp"
+  input: "^save/Assign"
+  input: "^save/Assign_1"
+  input: "^save/Assign_2"
+  input: "^save/Assign_3"
+  input: "^save/Assign_4"
+  input: "^save/Assign_5"
+  input: "^save/Assign_6"
+  input: "^save/Assign_7"
+}
+versions {
+  producer: 27
+}

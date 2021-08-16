@@ -1,0 +1,6 @@
+model_checkpoint_path: "40X_64S_v3_2019-07-25-16-11-50.ckpt-40"
+all_model_checkpoint_paths: "40X_64S_v3_2019-07-25-16-11-50.ckpt-0"
+all_model_checkpoint_paths: "40X_64S_v3_2019-07-25-16-11-50.ckpt-10"
+all_model_checkpoint_paths: "40X_64S_v3_2019-07-25-16-11-50.ckpt-20"
+all_model_checkpoint_paths: "40X_64S_v3_2019-07-25-16-11-50.ckpt-30"
+all_model_checkpoint_paths: "40X_64S_v3_2019-07-25-16-11-50.ckpt-40"
